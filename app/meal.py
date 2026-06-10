@@ -168,6 +168,7 @@ def generate_meal_plans(
     calc_result: CalculationResult,
     user_flags: List[FlagType] | None = None,
     num_plans: int = 4,
+    base_seed: int = 0,
 ) -> List[MealPlan]:
     if user_flags is None:
         user_flags = []
@@ -189,7 +190,7 @@ def generate_meal_plans(
             target_carbs=calc_result.macronutrients.carbs,
             target_fat=calc_result.macronutrients.fat,
             categories=categories,
-            seed=i + 1,
+            seed=base_seed * 100 + i + 1,
         )
         if abs(plan.calorie_deviation_pct) <= 5.0:
             plans.append(plan)
@@ -202,7 +203,7 @@ def generate_meal_plans(
             target_carbs=calc_result.macronutrients.carbs,
             target_fat=calc_result.macronutrients.fat,
             categories=categories,
-            seed=42,
+            seed=base_seed * 100 + 42,
         ))
 
     return plans[:5]

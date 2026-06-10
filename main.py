@@ -127,6 +127,7 @@ def get_weekly_menu(profile_id: str, start_date: Optional[str] = None):
             calc_result=calc_result,
             user_flags=profile.flags,
             num_plans=3,
+            base_seed=seed,
         )
         weekly_menu[day_str] = {
             "date": day_str,
