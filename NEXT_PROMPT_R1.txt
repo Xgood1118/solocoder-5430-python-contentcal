@@ -1,0 +1,1 @@
+7 日菜单接口 GET /profiles/{id}/weekly-menu 我看代码里算了 seed 变量但 generate_meal_plans 没接这个参数，for i in range(7) 7 天拿的永远是同一套方案，7 天完全一样。检查修复一下。
